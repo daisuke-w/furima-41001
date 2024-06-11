@@ -18,16 +18,16 @@ class Item < ApplicationRecord
 
   # バリデーション
   with_options presence: true do
+    validates :image
+    validates :name
+    validates :description
     validates :category_id,           numericality: { other_than: 1, message: error_message }
     validates :status_id,             numericality: { other_than: 1, message: error_message }
     validates :shipping_cost_id,      numericality: { other_than: 1, message: error_message }
     validates :prefecture_id,         numericality: { other_than: 1, message: error_message }
     validates :shipping_duration_id,  numericality: { other_than: 1, message: error_message }
-    validates :name
     validates :price,                 numericality: { only_integer: true,
                                                       greater_than_or_equal_to: 300,
-                                                      less_than_or_equal_to: 9_999_999
-                                                    }
-    validates :description
+                                                      less_than_or_equal_to: 9_999_999 }
   end
 end
