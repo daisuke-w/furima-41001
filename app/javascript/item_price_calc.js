@@ -9,8 +9,7 @@ function priceCalc() {
     const fee = Math.floor(inputValue * tax);
 
     addTaxPrice.innerText = fee;
-    profit.innerText = (inputValue - fee);
-
+    profit.innerText = Math.floor(inputValue - fee);
   });
 };
 
