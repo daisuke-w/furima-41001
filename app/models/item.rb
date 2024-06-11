@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  # ActiveHash moduleの読込
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
   # アソシエーション
   belongs_to :category
   belongs_to :status
