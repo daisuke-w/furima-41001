@@ -56,9 +56,8 @@ class ItemsController < ApplicationController
 
   def move_to_top
     # TODO: 商品購入機能実装後、売却済みの場合もTopページに遷移させる対応
-    item = set_item
-    return if current_user.id == item.user_id
-    
+    return if current_user.id == @item.user_id
+
     redirect_to root_path
   end
 end
