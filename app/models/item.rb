@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   belongs_to :user
+  has_one    :order
 
   # エラーメッセージ定義
   error_message = "can't be blank"

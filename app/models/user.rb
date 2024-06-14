@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   # アソシエーション
   has_many :items
+  has_many :orders
   
   # 正規表現を定義
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
