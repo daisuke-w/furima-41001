@@ -3,7 +3,7 @@ class OrderAddress
   include ActiveModel::Model
 
   # ゲッターセッターの定義
-  attr_accessor :user_id, :item_id, :order_id, :prefecture_id, :postal_code, :city, :block, :building, :phone, :token
+  attr_accessor :user_id, :item_id, :prefecture_id, :postal_code, :city, :block, :building, :phone, :token
 
   # 正規表現を定義
   POSTALCODE_REGEX = /\A[0-9]{3}-[0-9]{4}\z/
