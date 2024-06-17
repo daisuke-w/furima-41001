@@ -1,3 +1,8 @@
+<%= include_gon %>
+<%# 他のページでgon未定義エラーが発生する為個別に読込 %>
+<script type="module">
+  import "card"
+</script>
 <%= render "shared/second-header"%>
 
 <div class='transaction-contents'>
@@ -31,7 +36,8 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model: @order_address, url: item_orders_path(@item), id: 'charge-form', class: 'transaction-form-wrap', local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
