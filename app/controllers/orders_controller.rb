@@ -51,9 +51,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_top
-    # ログインユーザーと商品出品者が別人 かつ 未購入の場合以外はTopページに遷移する
-    return if (current_user.id != @item.user_id) && @item.order.blank?
-
-    redirect_to root_path
+    # 出品者と購入者が同一 もしくは 売却済みの場合はTopページに遷移
+    redirect_to root_path if current_user.id == @item.user_id || @item.order.present?
   end
 end
