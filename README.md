@@ -59,7 +59,6 @@
 | prefecture_id | 都道府県ID      | integer    | null: false |
 | postal_code   | 郵便番号        | string     | null: false |
 | city          | 市区町村        | string     | null: false |
-| town          | 丁目           | string     | null: false |
 | block         | 番地           | string     | null: false |
 | building      | 建物名         | string     |             |
 | phone         | 電話番号       | string     | null: false |

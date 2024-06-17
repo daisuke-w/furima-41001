@@ -8,10 +8,11 @@ class Item < ApplicationRecord
   belongs_to :shipping_cost
   belongs_to :prefecture
   belongs_to :shipping_duration
-  
+
   has_one_attached :image
 
   belongs_to :user
+  has_one    :order
 
   # エラーメッセージ定義
   error_message = "can't be blank"
