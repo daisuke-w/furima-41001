@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :items
   has_many :orders
-  
+
   # 正規表現を定義
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   ZENKAKU_REGEX = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/
@@ -23,7 +23,7 @@ class User < ApplicationRecord
     # 全角文字であること
     validates :family_name,       format: { with: ZENKAKU_REGEX, message: error_zenkaku }
     validates :first_name,        format: { with: ZENKAKU_REGEX, message: error_zenkaku }
-    
+
     # 全角カナ文字であること
     validates :family_name_kana,  format: { with: ZENKAKU_KANA_REGEX, message: error_zenkaku_kana }
     validates :first_name_kana,   format: { with: ZENKAKU_KANA_REGEX, message: error_zenkaku_kana }
