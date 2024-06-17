@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_top, only: :edit
 
+
   def index
     @items = Item.includes(:user).order('created_at DESC')
   end
@@ -62,8 +63,8 @@ class ItemsController < ApplicationController
   end
 
   def move_to_top
-    # TODO: 商品購入機能実装後、売却済みの場合もTopページに遷移させる対応
-    return if current_user.id == @item.user_id
+    # ログインユーザーと商品出品者が同一 かつ 未購入の場合以外はTopページに遷移する
+    return if (current_user.id == @item.user_id) && @item.order.blank?
 
     redirect_to root_path
   end
